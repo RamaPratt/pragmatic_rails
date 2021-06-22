@@ -1,0 +1,18 @@
+<p>These are the reviews for <%= link_to @movie.title, @movie %> </p>
+
+<ul class="reviews">
+  <% @reviews.each do |review| %>
+  <li>
+    <%= pluralize(review.stars, 'star') %>
+    <p>
+      <%= review.name %>
+      <span class="date">
+        <%= time_ago_in_words(review.created_at) %> ago
+      </span>
+    </p>
+    <p>
+      <%= review.comment %>
+    </p>
+  </li>
+  <% end %>
+</ul>
